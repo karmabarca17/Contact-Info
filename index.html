@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>akrem - Full Stack Developer</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- AOS.js for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+e1z5l5d5a5b5b5b5b5b5b5" crossorigin="anonymous">
+  
+  <!-- Add your custom CSS here -->
+  // ...existing code...
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', 'Arial', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background: url('pexels-goumbik-574069.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+      backdrop-filter: blur(2px);
+    }
+
+    header {
+      background: linear-gradient(135deg, #007BFF 60%, #00AEEF 100%);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-radius: 0 0 18px 18px;
+    }
+    header h1 {
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 17px;
+      padding: 6px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav ul li a:hover {
+      background: rgba(255,255,255,0.12);
+      color: #ffeb3b;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 80px 20px;
+      gap: 40px;
+    }
+    .hero-text {
+      max-width: 520px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      backdrop-filter: blur(2px);
+    }
+    .hero-text h2 {
+      font-size: 40px;
+      margin-bottom: 22px;
+      color: #00AEEF;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .hero-text p {
+      font-size: 20px;
+      margin-bottom: 28px;
+      color: #e0e0e0;
+      font-weight: 400;
+    }
+    .hero-text a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #007BFF, #00AEEF);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 17px;
+      margin-right: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .hero-text a:hover {
+      background: #0056b3;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+    }
+    .hero img {
+      width: 320px;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      border: 3px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 60px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #00AEEF;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .skills-list div {
+      padding: 18px 28px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+      font-size: 17px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(1px);
+    }
+    .skill {
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .skill:hover {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    /* Skills Colors */
+    .html { background: linear-gradient(135deg, #E34F26, #F06529); color: #fff; }
+    .css { background: linear-gradient(135deg, #264DE4, #3B82F6); color: #fff; }
+    .js { background: linear-gradient(135deg, #F7DF1E, #FBC02D); color: #222; }
+    .react { background: linear-gradient(135deg, #61DAFB, #21A1F1); color: #222; }
+    .next { background: linear-gradient(135deg, #000000, #434343); color: #fff; }
+    .sass { background: linear-gradient(135deg, #CF649A, #E38EB4); color: #fff; }
+    .tailwind { background: linear-gradient(135deg, #38BDF8, #06B6D4); color: #fff; }
+    .node { background: linear-gradient(135deg, #68A063, #4CAF50); color: #fff; }
+    .express { background: linear-gradient(135deg, #444444, #111111); color: #fff; }
+    .mongo { background: linear-gradient(135deg, #4DB33D, #2E7D32); color: #fff; }
+    .sql { background: linear-gradient(135deg, #00758F, #005F73); color: #fff; }
+    .git { background: linear-gradient(135deg, #F05033, #D1402F); color: #fff; }
+    .docker { background: linear-gradient(135deg, #0db7ed, #0678a0); color: #fff; }
+    .firebase { background: linear-gradient(135deg, #FFCA28, #FFB300); color: #222; }
+    .uiux { background: linear-gradient(135deg, #9B59B6, #8E44AD); color: #fff; }
+
+    /* Projects */
+    .viewwork .bg-white {
+      background: rgba(255,255,255,0.10) !important;
+      backdrop-filter: blur(2px);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .viewwork .bg-white:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+      transform: translateY(-8px) scale(1.03);
+    }
+    .viewwork img {
+      border-radius: 12px 12px 0 0;
+      border-bottom: 2px solid #00AEEF;
+    }
+    .viewwork h3 {
+      color: #ffeb3b;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    /* Contact */
+    .contact p a {
+      color: #00AEEF;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact p a:hover {
+      text-decoration: underline;
+      color: #ffeb3b;
+    }
+    .contact .bg-blue-600 {
+      background: linear-gradient(135deg, #007BFF, #00AEEF) !important;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .contact .bg-blue-600:hover {
+      background: #0056b3 !important;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+    }
+
+    /* FAQ */
+    .faq-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      color: #e0e0e0;
+      font-size: 17px;
+      backdrop-filter: blur(1px);
+    }
+    .faq-item h3 {
+      color: #00AEEF;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* Feedback Section */
+    .feedback-floating {
+      background: rgba(30,30,30,0.95) !important;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(2px);
+    }
+    .feedback-btn {
+      background: linear-gradient(135deg, #007BFF, #00AEEF) !important;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .feedback-btn:hover {
+      background: #0056b3 !important;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+    }
+    .close-btn {
+      color: #aaa;
+      transition: color 0.3s;
+    }
+    .close-btn:hover {
+      color: #ff4b4b;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #007BFF, #00AEEF);
+      color: white;
+      padding: 28px;
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      header, section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      .hero {
+        gap: 24px;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 12px;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 48px 12px;
+      }
+      .hero img {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+      .skills-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .viewwork .grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 22px;
+      }
+      .hero-text h2 {
+        font-size: 28px;
+      }
+      .hero-text p {
+        font-size: 15px;
+      }
+      .hero img {
+        max-width: 220px;
+      }
+      section h2 {
+        font-size: 22px;
+      }
+      .skills-list div {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .faq-item {
+        padding: 12px 8px;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 10px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero-text h2 {
+        font-size: 20px;
+      }
+      .hero-text p {
+        font-size: 13px;
+      }
+      .hero img {
+        max-width: 160px;
+      }
+      section h2 {
+        font-size: 18px;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+// ...existing code...
+  
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="test.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="py-6 px-4 md:px-12 flex flex-col md:flex-row items-center justify-between bg-white shadow-sm" data-aos="fade-down">
+    <h1 class="text-2xl font-bold tracking-tight">akrem-Dev</h1>
+    <nav>
+      <ul class="flex gap-6 text-base font-medium">
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
+        <li><a href="#viewwork" class="hover:text-blue-600">View My Work</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero flex flex-col md:flex-row items-center py-16 px-4 md:px-12" id="about" data-aos="fade-up">
+    <div class="hero-text flex-1 mb-8 md:mb-0">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Hi, I'm akrem - Full Stack Developer</h2>
+      <p class="mb-6 text-lg">I build responsive web apps with modern technologies like React, Node.js, and MongoDB.</p>
+      <a href="#viewwork" class="inline-block bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">View My Work</a>
+      <a href="/assets/CV-Akrem.pdf" download class="ml-4 inline-block bg-gray-800 text-white px-6 py-2 rounded shadow hover:bg-gray-900 transition">Download CV</a>
+    </div>
+    <img src="WhatsApp Image 2025-08-07 à 16.02.23_c821cb27.jpg" alt="Developer smiling while working on a laptop at a desk in a bright creative workspace with natural light. The atmosphere is welcoming and positive. No visible text." class="w-full md:w-1/3 rounded-lg shadow-lg" />
+  </section>
+
+  <!-- Skills -->
+  <section class="skills py-12 px-4 md:px-12" id="skills" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-6">Skills</h2>
+    <div class="skills-list grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="skill html bg-white rounded p-3 shadow text-center">HTML5</div>
+      <div class="skill css bg-white rounded p-3 shadow text-center">CSS3</div>
+      <div class="skill js bg-white rounded p-3 shadow text-center">JavaScript</div>
+      <div class="skill react bg-white rounded p-3 shadow text-center">React</div>
+      <div class="skill next bg-white rounded p-3 shadow text-center">Next.js</div>
+      <div class="skill sass bg-white rounded p-3 shadow text-center">Sass/SCSS</div>
+      <div class="skill tailwind bg-white rounded p-3 shadow text-center">Tailwind CSS</div>
+      <div class="skill node bg-white rounded p-3 shadow text-center">Node.js</div>
+      <div class="skill express bg-white rounded p-3 shadow text-center">Express.js</div>
+      <div class="skill mongo bg-white rounded p-3 shadow text-center">MongoDB</div>
+      <div class="skill sql bg-white rounded p-3 shadow text-center">MySQL / PostgreSQL</div>
+      <div class="skill git bg-white rounded p-3 shadow text-center">Git & GitHub</div>
+      <div class="skill docker bg-white rounded p-3 shadow text-center">Docker Basics</div>
+      <div class="skill firebase bg-white rounded p-3 shadow text-center">Firebase</div>
+      <div class="skill uiux bg-white rounded p-3 shadow text-center">UI/UX Basics</div>
+    </div>
+  </section>
+
+  <!-- View My Work Section -->
+  <section class="viewwork py-12 px-4 md:px-12" id="viewwork" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-6">View My Work</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Project Card 1 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <img src="pexels-asphotograpy-230544.jpg" alt="E-commerce Store Screenshot" class="w-full h-48 object-cover">
+        <div class="p-6 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">E-commerce Store</h3>
+          <p class="mb-4 flex-1">Full MERN stack e-commerce platform with payment integration.</p>
+          <a href="https://github.com/akremdev/ecommerce-store" target="_blank" class="text-blue-600 hover:underline font-medium">GitHub Repo</a>
+        </div>
+      </div>
+      <!-- Project Card 2 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <img src="pexels-thisisengineering-3861972.jpg" alt="Portfolio Website Screenshot" class="w-full h-48 object-cover">
+        <div class="p-6 flex-1 flex flex-col">
+          <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+          <p class="mb-4 flex-1">Responsive personal portfolio showcasing skills and projects.</p>
+          <a href="https://github.com/akremdev/portfolio" target="_blank" class="text-blue-600 hover:underline font-medium">GitHub Repo</a>
+        </div>
+      </div>
+      <!-- Add more projects as needed -->
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact py-12 px-4 md:px-12" id="contact" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-6">HIRE ME</h2>
+    <p class="mb-2">Email: <strong>karmabarca17@gmail.com</strong></p>
+    <p class="mb-2">LinkedIn: <a href="#" class="text-blue-600 hover:underline">linkedin.com/in/akremdev</a></p>
+    <p class="mb-2">GitHub: <a href="#" class="text-blue-600 hover:underline">github.com/akremdev</a></p>
+    <a href="/assets/CV-Akrem.pdf" download class="inline-block mt-4 bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">Download CV</a>
+  </section>
+
+  <!-- FAQ (Simplified) -->
+  <section class="faq py-12 px-4 md:px-12" id="FAQ" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-6">FAQs</h2>
+    <div class="faq-item mb-4">
+      <h3>What services do you offer?</h3>
+      <p>Web app development, UI/UX design, and backend integration.</p>
+    </div>
+    <div class="faq-item mb-4">
+      <h3>How can I contact you?</h3>
+      <p>Email me at karmabarca17@gmail.com or use LinkedIn.</p>
+    </div>
+    <div class="faq-item mb-4">
+      <h3>Are you available for freelance work?</h3>
+      <p>Yes, I am open to freelance and remote opportunities.</p>
+    </div>
+    <div class="faq-item mb-4">
+      <h3>Where can I see your projects?</h3>
+      <p>Check the "View My Work" section or visit my GitHub.</p>
+    </div>
+  </section>
+
+<!-- Feedback -->
+<section class="feedback py-12 px-4 md:px-12" data-aos="fade-up">
+    <div class="feedback-floating fixed bottom-8 right-8 bg-white rounded-lg shadow-lg p-6 w-80 z-50 hidden" id="feedbackBox">
+        <span class="close-btn absolute top-2 right-3 text-2xl cursor-pointer" id="closeBtn">&times;</span>
+        <h4 class="text-lg font-semibold mb-2">Rate this Portfolio</h4>
+        <p class="mb-4">We value your opinion! Leave a remark and give a rating.</p>
+        <!-- Stars -->
+        <div class="stars flex gap-1 mb-4 text-yellow-400 text-xl">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9734;</span>
+        </div>
+        <!-- Remark -->
+        <textarea class="w-full border rounded p-2 mb-4" placeholder="Write your remark here..."></textarea>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full">Submit</button>
+    </div>
+    <button class="feedback-btn fixed bottom-8 right-8 bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition z-40" id="feedbackBtn">Feedback</button>
+</section>
+
+  <!-- Footer -->
+  <footer class="py-6 px-4 md:px-12 text-center bg-white shadow mt-12" data-aos="fade-up">
+    <p>&copy; 2025 akrem Dev. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
