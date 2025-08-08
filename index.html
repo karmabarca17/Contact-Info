@@ -14,7 +14,7 @@
   
   <!-- Add your custom CSS here -->
   // ...existing code...
-  <style>
+   <style>
     * {
       margin: 0;
       padding: 0;
@@ -395,7 +395,24 @@
 .faq-item.active .faq-icon {
   transform: rotate(45deg); /* تبديل + لـ - أو رمز إغلاق */
 }
-
+    .faq-question {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-question:hover {
+      background-color: #0056b3;
+    }
   </style>
 // ...existing code...
   
@@ -475,7 +492,6 @@
     </div>
   </section>
 
-  
   <!-- Contact Section -->
 <section id="contact" class="bg-white py-16 px-6 md:px-20 text-gray-800">
   <div class="max-w-4xl mx-auto text-center">
@@ -519,26 +535,52 @@
   </div>
 </section>
 
- <!-- Feedback -->
-<section class="feedback py-12 px-4 md:px-12" data-aos="fade-up">
-    <div class="feedback-floating fixed bottom-8 right-8 bg-white rounded-lg shadow-lg p-6 w-80 z-50 hidden" id="feedbackBox">
-        <span class="close-btn absolute top-2 right-3 text-2xl cursor-pointer" id="closeBtn">&times;</span>
-        <h4 class="text-lg font-semibold mb-2">Rate this Portfolio</h4>
-        <p class="mb-4">We value your opinion! Leave a remark and give a rating.</p>
-        <!-- Stars -->
-        <div class="stars flex gap-1 mb-4 text-yellow-400 text-xl">
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9734;</span>
-        </div>
-        <!-- Remark -->
-        <textarea class="w-full border rounded p-2 mb-4" placeholder="Write your remark here..."></textarea>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full">Submit</button>
+  <section class="faq-section max-w-3xl mx-auto p-6" id="faq">
+  <h2 class="text-3xl font-bold mb-8 text-center text-gray-900">FAQs</h2>
+
+  <div class="faq-item border rounded-lg mb-4 overflow-hidden">
+    <button class="faq-question w-full text-left px-6 py-4 bg-blue-600 text-white font-semibold flex justify-between items-center focus:outline-none">
+      What services do you offer?
+      <span class="faq-icon transition-transform duration-300">+</span>
+    </button>
+    <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-700 bg-gray-50 transition-all duration-500">
+      <p class="py-4">
+        SEO audits, keyword research, conversion optimization, and digital marketing for dropshipping stores.
+      </p>
     </div>
-    <button class="feedback-btn fixed bottom-8 right-8 bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition z-40" id="feedbackBtn">Feedback</button>
+  </div>
+
+  <div class="faq-item border rounded-lg mb-4 overflow-hidden">
+    <button class="faq-question w-full text-left px-6 py-4 bg-blue-600 text-white font-semibold flex justify-between items-center focus:outline-none">
+      How can I contact you?
+      <span class="faq-icon transition-transform duration-300">+</span>
+    </button>
+    <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-700 bg-gray-50 transition-all duration-500">
+      <p class="py-4">Email me at karmabarca17@gmail.com or use LinkedIn.</p>
+    </div>
+  </div>
+  <div class="faq-item border rounded-lg mb-4 overflow-hidden">
+    <button class="faq-question w-full text-left px-6 py-4 bg-blue-600 text-white font-semibold flex justify-between items-center focus:outline-none">
+      What is your experience level?
+      <span class="faq-icon transition-transform duration-300">+</span>
+    </button>
+    <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-700 bg-gray-50 transition-all duration-500">
+      <p class="py-4">I have over 5 years of experience in web development and digital marketing.</p>
+    </div>
+  </div>
+  <div class="faq-item border rounded-lg mb-4 overflow-hidden">
+    <button class="faq-question w-full text-left px-6 py-4 bg-blue-600 text-white font-semibold flex justify-between items-center focus:outline-none">
+      Do you offer free consultations?
+      <span class="faq-icon transition-transform duration-300">+</span>
+    </button>
+    <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-700 bg-gray-50 transition-all duration-500">
+      <p class="py-4">Yes, I offer a free initial consultation to discuss your needs and how I can help.</p>
+    </div>
+  </div>
+
+  <!-- أضف المزيد من الأسئلة بنفس النمط -->
 </section>
+
 
 <!-- Feedback -->
 <section class="feedback py-12 px-4 md:px-12" data-aos="fade-up">
@@ -566,7 +608,7 @@
     <p>&copy; 2025 akrem Dev. All rights reserved.</p>
   </footer>
 </body>
-
 </html> 
+
 
 
