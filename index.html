@@ -506,26 +506,26 @@
   </div>
 </section>
 
-  <!-- FAQ (Simplified) -->
-  <section class="faq py-12 px-4 md:px-12" id="FAQ" data-aos="fade-up">
-    <h2 class="text-2xl font-bold mb-6">FAQs</h2>
-    <div class="faq-item mb-4">
-      <h3>What services do you offer?</h3>
-      <p>Web app development, UI/UX design, and backend integration.</p>
+ <!-- Feedback -->
+<section class="feedback py-12 px-4 md:px-12" data-aos="fade-up">
+    <div class="feedback-floating fixed bottom-8 right-8 bg-white rounded-lg shadow-lg p-6 w-80 z-50 hidden" id="feedbackBox">
+        <span class="close-btn absolute top-2 right-3 text-2xl cursor-pointer" id="closeBtn">&times;</span>
+        <h4 class="text-lg font-semibold mb-2">Rate this Portfolio</h4>
+        <p class="mb-4">We value your opinion! Leave a remark and give a rating.</p>
+        <!-- Stars -->
+        <div class="stars flex gap-1 mb-4 text-yellow-400 text-xl">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9734;</span>
+        </div>
+        <!-- Remark -->
+        <textarea class="w-full border rounded p-2 mb-4" placeholder="Write your remark here..."></textarea>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full">Submit</button>
     </div>
-    <div class="faq-item mb-4">
-      <h3>How can I contact you?</h3>
-      <p>Email me at karmabarca17@gmail.com or use LinkedIn.</p>
-    </div>
-    <div class="faq-item mb-4">
-      <h3>Are you available for freelance work?</h3>
-      <p>Yes, I am open to freelance and remote opportunities.</p>
-    </div>
-    <div class="faq-item mb-4">
-      <h3>Where can I see your projects?</h3>
-      <p>Check the "View My Work" section or visit my GitHub.</p>
-    </div>
-  </section>
+    <button class="feedback-btn fixed bottom-8 right-8 bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition z-40" id="feedbackBtn">Feedback</button>
+</section>
 
 <!-- Feedback -->
 <section class="feedback py-12 px-4 md:px-12" data-aos="fade-up">
@@ -555,3 +555,4 @@
 </body>
 
 </html> 
+
